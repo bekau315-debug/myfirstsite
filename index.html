@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Королевская Семья Вильтрума</title>
+
+
+ <div
+  class="hero min-h-screen"
+  style="background-image: url(https://lens.usercontent.google.com/banana?agsi=CmdnbG9iYWw6OjAwMDA1NWNmZWM3MDAyNmQ6MDAwMDAwZWI6MTpiYTI1YWJhNWQzMzU1NjU1OjAwMDA1NWNmZWM3MDAyNmQ6MDAwMDAzMzAwMmIwMzM2ODowMDA2NTRmYTI5Y2E0ZjVmEAIYAQ==);"
+>
+  <div class="hero-overlay"></div>
+  <div class="hero-content text-neutral-content text-center">
+    <div class="max-w-md">
+      <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
+      <p class="mb-5">
+        Неуязвимость — это не отсутствие боли,
+         а умение подниматься после каждого удара.
+          Это несгибаемый внутренний стержень и вера в себя,
+           которые невозможно разрушить. Настоящая сила не в каменном сердце,
+            а в способности идти вперед вопреки любому шторму.
+      </p>
+      
+    </div>
+  </div>
+</div>
+
+
+
+    <style>
+        
+
+
+
+
+
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at center, rgba(15, 23, 42, 0.8), rgba(2, 6, 23, 0.95)), 
+                        url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #f1f5f9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #93c5fd;
+            text-shadow: 0 0 20px rgba(147, 197, 253, 0.5);
+            margin: 40px 0 20px 0;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.85));
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            width: 320px;
+            min-height: 380px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(147, 197, 253, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        /* Эффект плавной анимации при наведении (Ховер) */
+        .card:hover {
+            transform: translateY(-10px) scale(1.03);
+            border-color: rgba(147, 197, 253, 0.5);
+            box-shadow: 0 15px 35px rgba(147, 197, 253, 0.2);
+        }
+
+        .card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .card h2 {
+            color: #38bdf8;
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(56, 189, 248, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .card h3 {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin: 0 0 15px 0;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Хроники Империи Вильтрум</h1>
+
+    <div class="container">
+        <!-- Карточка 1: Император Аргалл -->
+        <div class="card">
+            <h2>Император Аргалл</h2>
+            <h3>Древний Правитель</h3>
+            <p>Легендарный лидер, чей авторитет объединил планету. Его убийство предателем Тадеусом положило конец золотой эпохе мира и развязало жестокую гражданскую войну, навсегда изменившую вектор развития всей расы вильтрумитов.</p>
+        </div>
+
+        <!-- Карточка 2: Семья Марка -->
+        <div class="card">
+            <h2>Семья Грейсон</h2>
+            <h3>Наследники Крови</h3>
+            <p>Марк Грейсон (Неуязвимый) — законный наследник престола Аргалла через своего отца Омни-Мэна (Нолана). Рожденный на Земле полукровкой, Марк ломает привычные вильтрумские догмы, привнося в империю сострадание и человечность.</p>
+        </div>
+
+        <!-- Карточка 3: Гранд-Регент Трагг -->
+        <div class="card">
+            <h2>Гранд-Регент Трагг</h2>
+            <h3>Стальной Защитник</h3>
+            <p>Самый сильный и безжалостный воин Империи. Тысячелетиями тайно управлял вильтрумитами в отсутствие прямого наследника. Позже стал главным врагом Марка Грейсона, отказываясь признавать новые законы и равенство рас.</p>
+        </div>
+    </div>
+
+<a href="./gg.html">
+<button class="btn btn-primary">дальше</button>
+</a>
+
+
+<footer class="footer footer-horizontal footer-center bg-primary text-primary-content p-10">
+  <aside>
+    <svg
+      width="50"
+      height="50"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      class="inline-block fill-current">
+      <path
+        d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path>
+    </svg>
+    <p class="font-bold">
+      ACME Industries Ltd.
+      <br />
+      Providing reliable tech since 1992
+    </p>
+    <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
+  </aside>
+  <nav>
+    <div class="grid grid-flow-col gap-4">
+      <a>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          class="fill-current">
+          <path
+            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+        </svg>
+      </a>
+      <a>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          class="fill-current">
+          <path
+            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+        </svg>
+      </a>
+      <a>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          class="fill-current">
+          <path
+            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+        </svg>
+      </a>
+    </div>
+  </nav>
+</footer>
+
+
+</body>
+</html>
