@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invincible | Карта Угроз</title>
+  <style>
+    /* Базовые настройки и глубокий черно-синий фон */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #000000 0%, #020024 50%, #050515 100%);
+      color: #ffffff;
+      font-family: 'Arial', sans-serif;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    /* Главный заголовок сайта */
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #00f0ff;
+      text-shadow: 0 0 15px #00f0ff, 0 0 30px rgba(0, 240, 255, 0.5);
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #8a99ad;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    /* Сетка для карточек */
+    .grid-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    /* Базовая неоновая карточка */
+    .card {
+      background: rgba(5, 5, 25, 0.7);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 25px;
+      transition: all 0.4s ease-in-out;
+      position: relative;
+    }
+
+    /* Заглушка для фото персонажа */
+    .photo-placeholder {
+      width: 100%;
+      height: 200px;
+      background: #0b0b22;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #4a5568;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card p {
+      color: #a0aec0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    /* Контейнер шкалы угрозы */
+    .threat-meter {
+      margin-top: auto;
+    }
+
+    .threat-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      color: #8a99ad;
+    }
+
+    .bar-bg {
+      width: 100%;
+      height: 10px;
+      background: #121026;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      width: 0%; /* Изначально шкала пустая */
+      border-radius: 5px;
+      transition: width 1s cubic-bezier(0.1, 0.8, 0.3, 1);
+    }
+
+    /* СТИЛИЗАЦИЯ КАРТОЧЕК ВРАГОВ */
+
+    /* 1. Боевой Кот (Красный неон) */
+    .card.battle-cat {
+      border: 2px solid #ff003c;
+      box-shadow: 0 0 15px rgba(255, 0, 60, 0.2);
+    }
+    .card.battle-cat h3 {
+      color: #ff003c;
+      text-shadow: 0 0 10px rgba(255, 0, 60, 0.5);
+    }
+    .card.battle-cat .photo-placeholder {
+      border-color: #ff003c;
+    }
+    .card.battle-cat .bar-fill {
+      background: #ff003c;
+      box-shadow: 0 0 10px #ff003c;
+    }
+    /* Эффект при наведении */
+    .card.battle-cat:hover {
+      box-shadow: 0 0 25px #ff003c, inset 0 0 10px rgba(255, 0, 60, 0.4);
+      transform: scale(1.03) translateY(-5px);
+    }
+    .card.battle-cat:hover .bar-fill {
+      width: 95%; /* Заполнение шкалы */
+    }
+
+    /* 2. Ангстрем Леви (Ярко-желтый неон) */
+    .card.angstrom {
+      border: 2px solid #ffea00;
+      box-shadow: 0 0 15px rgba(255, 234, 0, 0.2);
+    }
+    .card.angstrom h3 {
+      color: #ffea00;
+      text-shadow: 0 0 10px rgba(255, 234, 0, 0.5);
+    }
+    .card.angstrom .photo-placeholder {
+      border-color: #ffea00;
+    }
+    .card.angstrom .bar-fill {
+      background: #ffea00;
+      box-shadow: 0 0 10px #ffea00;
+    }
+    /* Эффект при наведении */
+    .card.angstrom:hover {
+      box-shadow: 0 0 25px #ffea00, inset 0 0 10px rgba(255, 234, 0, 0.4);
+      transform: scale(1.03) translateY(-5px);
+    }
+    .card.angstrom:hover .bar-fill {
+      width: 85%; /* Заполнение шкалы */
+    }
+
+    /* 3. Гранд-Регент Трэгг (Агрессивный бордовый/красный неон) */
+    .card.thragg {
+      border: 2px solid #ff0000;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+    }
+    .card.thragg h3 {
+      color: #ff0000;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    }
+    .card.thragg .photo-placeholder {
+      border-color: #ff0000;
+    }
+    .card.thragg .bar-fill {
+      background: #ff0000;
+      box-shadow: 0 0 10px #ff0000;
+    }
+    /* Эффект при наведении */
+    .card.thragg:hover {
+      box-shadow: 0 0 25px #ff0000, inset 0 0 10px rgba(255, 0, 0, 0.4);
+      transform: scale(1.03) translateY(-5px);
+    }
+    .card.thragg:hover .bar-fill {
+      width: 100%; /* Заполнение шкалы */
+    }
+
+    /* Футер */
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: #4a5568;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Invincible</h1>
+    <p>База данных главных угроз и врагов Земли</p>
+  </header>
+
+  <main class="grid-container">
+
+    <!-- Карточка 1: Боевой Кот -->
+    <div class="card battle-cat">
+      <div>
+        <div class="photo-placeholder"><img src="https://i.redd.it/so-who-would-win-in-a-fight-in-invincible-battle-beast-or-v0-x7gt1y4ss9mf1.jpg?width=1577&format=pjpg&auto=webp&s=184e5e0ec0c5a10a220284674d825f38cbc9c2ff" alt=""></div>
+        <h3>Боевой Кот</h3>
+        <p>Космический воин, ищущий достойного соперника по всей галактике. Обладает сокрушительной физической силой и не знает пощады.</p>
+      </div>
+      <div class="threat-meter">
+        <div class="threat-label">
+          <span>Опасность</span>
+          <span style="color: #ff003c; font-weight: bold;">9.5 / 10</span>
+        </div>
+        <div class="bar-bg">
+          <div class="bar-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Карточка 2: Ангстрем Леви -->
+    <div class="card angstrom">
+      <div>
+        <div class="photo-placeholder"><img src="https://sun9-11.userapi.com/impg/iQHq2P4rl71qPFK953Yx-Ne-l0OY2gEbd-vYkw/UriRSRT38m4.jpg?size=1157x739&quality=95&sign=8314b39d0edb1d9b34691a8a72702c8c&type=album" alt=""> </div>
+        <h3>Император Аргалл</h3>
+        <p>Злодей, способный открывать порталы в альтернативные реальности. Безумно одержим местью Марку Грейсону и использует знания сотен своих двойников.</p>
+      </div>
+      <div class="threat-meter">
+        <div class="threat-label">
+          <span>Опасность</span>
+          <span style="color: #ffea00; font-weight: bold;">8.5 / 10</span>
+        </div>
+        <div class="bar-bg">
+          <div class="bar-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Карточка 3: Гранд-Регент Трэгг -->
+    <div class="card thragg">aciyzZKH6c4`
+      <div>
+        <div class="photo-placeholder"><img src="https://avatars.mds.yandex.net/i?id=f7cdf33cb148f5270bfff3562cc120c8e6e17e85-5275190-images-thumbs&n=13" alt=""> </div>
+        <h3>Гранд-Регент Трэгг</h3>
+        <p>Абсолютный лидер Империи Вилтрум. Самый сильный, опытный и жестокий вилтрумит из всех существующих, жаждущий полного подчинения Земли.</p>
+      </div>
+      <div class="threat-meter">
+        <div class="threat-label">
+          <span>Опасность</span>
+          <span style="color: #ff0000; font-weight: bold;">10 / 10</span>
+        </div>
+        <div class="bar-bg">
+          <div class="bar-fill"></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+  <iframe width="1860" height="715" src="https://www.youtube.com/embed/qruckRFFJOI?si=UPPaADnJHPEr1FaR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+
+  <footer>
+    <p> 2026 Вселенная Неуязвимого. Раздел интерактивного мониторинга угроз.</p>
+  </footer>
+
+<footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
+  <nav>
+    <h6 class="footer-title">Services</h6>
+    <a class="link link-hover">Branding</a>
+    <a class="link link-hover">Design</a>
+    <a class="link link-hover">Marketing</a>
+    <a class="link link-hover">Advertisement</a>
+  </nav>
+  <nav>
+    <h6 class="footer-title">Company</h6>
+    <a class="link link-hover">About us</a>
+    <a class="link link-hover">Contact</a>
+    <a class="link link-hover">Jobs</a>
+    <a class="link link-hover">Press kit</a>
+  </nav>
+  <nav>
+    <h6 class="footer-title">Legal</h6>
+    <a class="link link-hover">Terms of use</a>
+    <a class="link link-hover">Privacy policy</a>
+    <a class="link link-hover">Cookie policy</a>
+  </nav>
+  <form>
+    <h6 class="footer-title">Newsletter</h6>
+    <fieldset class="w-80">
+      <label>Enter your email address</label>
+      <div class="join">
+        <input
+          type="text"
+          placeholder="username@site.com"
+          class="input input-bordered join-item" />
+        <button class="btn btn-primary join-item">Subscribe</button>
+      </div>
+    </fieldset>
+  </form>
+</footer>
+
+</body>
+</html>

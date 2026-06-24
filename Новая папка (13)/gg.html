@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Неуязвимый | Вселенная</title>
+  <style>
+    /* Базовые настройки и черно-синий фон */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #000000 0%, #020024 50%, #050515 100%);
+      color: #ffffff;
+      font-family: 'Arial', sans-serif;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    /* Главный заголовок сайта */
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #00f0ff;
+      text-shadow: 0 0 15px #00f0ff, 0 0 30px rgba(0, 240, 255, 0.5);
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #8a99ad;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    /* Сетка для неоновых карточек */
+    .grid-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    /* Базовая неоновая карточка */
+    .card {
+      background: rgba(5, 5, 25, 0.7);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 25px;
+      transition: all 0.4s ease-in-out;
+      position: relative;
+    }
+
+    /* Заглушка для фото персонажа */
+    .photo-placeholder {
+      width: 100%;
+      height: 200px;
+      background: #0b0b22;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #4a5568;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      border: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card p {
+      color: #a0aec0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Кастомизация неоновых цветов для разных категорий */
+
+    /* 1. Девушка (Розовый неон) */
+    .card.girlfriend {
+      border: 2px solid #ff007f;
+      box-shadow: 0 0 15px rgba(255, 0, 127, 0.2);
+    }
+    .card.girlfriend h3 {
+      color: #ff007f;
+      text-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+    }
+    .card.girlfriend .photo-placeholder {
+      border-color: #ff007f;
+      box-shadow: inset 0 0 10px rgba(255, 0, 127, 0.2);
+    }
+    .card.girlfriend:hover {
+      box-shadow: 0 0 25px #ff007f, inset 0 0 10px rgba(255, 0, 127, 0.4);
+      transform: translateY(-5px);
+    }
+
+    /* 2. Мама (Фиолетовый неон) */
+    .card.mother {
+      border: 2px solid #bd00ff;
+      box-shadow: 0 0 15px rgba(189, 0, 255, 0.2);
+    }
+    .card.mother h3 {
+      color: #bd00ff;
+      text-shadow: 0 0 10px rgba(189, 0, 255, 0.5);
+    }
+    .card.mother .photo-placeholder {
+      border-color: #bd00ff;
+      box-shadow: inset 0 0 10px rgba(189, 0, 255, 0.2);
+    }
+    .card.mother:hover {
+      box-shadow: 0 0 25px #bd00ff, inset 0 0 10px rgba(189, 0, 255, 0.4);
+      transform: translateY(-5px);
+    }
+
+    /* 3. Папа (Красный боевой неон) */
+    .card.father {
+      border: 2px solid #ff003c;
+      box-shadow: 0 0 15px rgba(255, 0, 60, 0.2);
+    }
+    .card.father h3 {
+      color: #ff003c;
+      text-shadow: 0 0 10px rgba(255, 0, 60, 0.5);
+    }
+    .card.father .photo-placeholder {
+      border-color: #ff003c;
+      box-shadow: inset 0 0 10px rgba(255, 0, 60, 0.2);
+    }
+    .card.father:hover {
+      box-shadow: 0 0 25px #ff003c, inset 0 0 10px rgba(255, 0, 60, 0.4);
+      transform: translateY(-5px);
+    }
+
+    /* 4. Друзья (Зеленый неон) */
+    .card.friends {
+      border: 2px solid #00ff66;
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+    }
+    .card.friends h3 {
+      color: #00ff66;
+      text-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+    }
+    .card.friends .photo-placeholder {
+      border-color: #00ff66;
+      box-shadow: inset 0 0 10px rgba(0, 255, 102, 0.2);
+    }
+    .card.friends:hover {
+      box-shadow: 0 0 25px #00ff66, inset 0 0 10px rgba(0, 255, 102, 0.4);
+      transform: translateY(-5px);
+    }
+
+    /* 5. Команда (Яркий голубой неон) */
+    .card.team {
+      border: 2px solid #00f0ff;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+    }
+    .card.team h3 {
+      color: #00f0ff;
+      text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    }
+    .card.team .photo-placeholder {
+      border-color: #00f0ff;
+      box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.2);
+    }
+    .card.team:hover {
+      box-shadow: 0 0 25px #00f0ff, inset 0 0 10px rgba(0, 240, 255, 0.4);
+      transform: translateY(-5px);
+    }
+
+    /* Футер */
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: #4a5568;
+      font-size: 0.9rem;
+    }
+    main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  margin-top: 30px;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Invincible</h1>
+    <p>Близкое окружение и союзники главного героя</p>
+  </header>
+
+  <main class="">
+<div class="grid-container">
+    <!-- Карточка: Девушка -->
+    <div class="card girlfriend">
+      <div class="photo-placeholder"><img src="https://preview.redd.it/i-know-this-is-the-definition-of-beating-a-dead-horse-but-i-v0-xg141mr9gnre1.jpeg?width=640&crop=smart&auto=webp&s=cd627d686cc83db1776700f1c3169b77b745766a" alt=""></div>
+      <h3>Эмбер / Сила Духа</h3>
+      <p>Опора Марка в обычной жизни. Девушка, которая ценит честность и искренность превыше супергеройских обязательств.</p>
+    </div>
+
+    <!-- Карточка: Мама -->
+    <div class="card mother">
+      <div class="photo-placeholder"><img src="https://remanga.org/media/title-character/cover_835e3f14.webp" alt=""></div>
+      <h3>Дебби Грейсон</h3>
+      <p>Сердце и земной якорь семьи. Сильная женщина, способная удерживать баланс между обычным миром и миром богов.</p>
+    </div>
+
+    <!-- Карточка: Папа -->
+    <div class="card father">
+      <div class="photo-placeholder"><img src="https://i.ytimg.com/vi/aciyzZKH6c4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCLTE3LPyvaOg0_ZvSac70bQ5L59A" alt=""></div>
+      <h3>Омни-Мэн</h3>
+      <p>Нолан Грейсон. Величайший защитник Земли с темным секретом далекой и жестокой цивилизации Вилтрум.</p>
+    </div>
+
+    <!-- Карточка: Друзья -->
+    <div class="card friends">
+      <div class="photo-placeholder"><img src="https://avatars.mds.yandex.net/i?id=18120948d5a9b452a60ec3e86d4f7afb81b4597c-9238131-images-thumbs&n=13" alt=""></div>
+      <h3>Уильям Клоквелл</h3>
+      <p>Лучший друг Марка по колледжу. Всегда готов поддержать шуткой или ценным советом в самые запутанные моменты.</p>
+    </div>
+
+    <!-- Карточка: Команда -->
+    <div class="card team">
+      <div class="photo-placeholder"><img src="https://www.soyuz.ru/public/uploads/files/2/7628053/202309221205430e02f5071b.jpg" alt=""> </div>
+      <h3>Команда Подростков</h3>
+      <p>Новое поколение героев под предводительством Атомной Евы и Робота, защищающее планету от постоянных угроз.</p>
+    </div>
+</div>
+<a href="./jj.html">
+  <button class="btn btn-neutral btn-outline ">Дальше</button>
+</a>
+    
+</main>
+
+
+
+  <footer>
+    <p>2026 Вселенная Неуязвимого. Проект в неоновом стиле.</p>
+  </footer>
+
+
+
+</body>
+</html>
